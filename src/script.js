@@ -132,6 +132,12 @@ class Game extends React.Component {
         return null;
     }
 
+    makeSquaresCopy(squares) {
+        const newSquares = []
+        squares.map(row => newSquares.push(Array.of(...row.map(el => el? {...el}: null))))
+        return newSquares
+    }
+
     handleClick(i, j) {
         if (this.state.squares[i][j] !== null || this.state.gameOver) {
             return
@@ -139,8 +145,7 @@ class Game extends React.Component {
 
         const history = this.state.history.slice(0, this.state.currentStep + 1)
 
-        const newSquares = []
-        this.state.squares.map(row => newSquares.push(Array.of(...row)))
+        const newSquares = this.makeSquaresCopy(this.state.squares)
 
         const c = this.getCharacter()
         newSquares[i][j] = {
@@ -193,7 +198,7 @@ class Game extends React.Component {
 
         this.setState({
             currentStep: i,
-            squares: Array.of(...step.squares),
+            squares: this.makeSquaresCopy(step.squares),
             xIsNext: step.xIsNext,
             gameOver: step.gameOver
         })
