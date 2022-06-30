@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, serif;
+}
+
+.highlight {
+    background: green;
+}
+
+.game {
+    display: flex;
+}
+
+.board-row {
+    height: 32px;
+    display: flex;
+    margin-top: -1px;
+}
+
+.game-board button {
+    background: white;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    padding: 0;
+    margin: 0 0 0 -1px;
+    border-radius: 0;
+    border: 1px solid #AAA;
+}
+
+.game-board button.highlight {
+    background: red;
+}
+
+.game-info {
+    margin-left: 32px;
+}
+
+.game-info .title {
+    display: flex;
+    margin-top: 10px;
+}
+
+.game-info .title button {
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.game-info .title h2 {
+    margin: 0;
+}
+
+.game-info li {
+    cursor: pointer;
+}
